@@ -19,7 +19,7 @@ const Shop = () => {
     const [priceRange, setPriceRange] = useState(1000);
     const [showFilters, setShowFilters] = useState(false);
 
-    // Fetch from API
+    // Load sweets from backend
     useEffect(() => {
         const fetchSweets = async () => {
             setLoading(true);
@@ -28,6 +28,7 @@ const Shop = () => {
                 setSweets(data.data);
             } catch (error) {
                 console.error('Error fetching sweets:', error);
+                // TODO: show error toast to user
             } finally {
                 setLoading(false);
             }
@@ -35,8 +36,10 @@ const Shop = () => {
         fetchSweets();
     }, []);
 
+    // Get unique categories for filter
     const categories = ['All', ...new Set(sweets.map(s => s.category))];
 
+    // Filter sweets based on search, category and price
     const filteredSweets = sweets.filter(sweet => {
         const matchesSearch = sweet.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = selectedCategory === 'All' || sweet.category === selectedCategory;
@@ -50,10 +53,12 @@ const Shop = () => {
     const { addToast } = useToast();
 
     const handleAddToCart = (sweet, quantity, weight = '1kg', isBuyNow = false) => {
+        // Redirect to login if not authenticated
         if (!user) {
             navigate('/login');
             return;
         }
+        
         addToCart(sweet, quantity, weight);
 
         if (isBuyNow) {
@@ -63,6 +68,7 @@ const Shop = () => {
         }
     };
 
+    // Calculate available quantity after subtracting cart items
     const getAdjustedQuantity = (sweet) => {
         const inCartQty = cart
             .filter(item => item._id === sweet._id)

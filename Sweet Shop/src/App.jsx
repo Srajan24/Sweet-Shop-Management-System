@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Admin from './pages/Admin';
 
+// Protected route wrapper - checks if user is logged in
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { user } = useAuth();
 
@@ -19,6 +20,7 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
     return <Navigate to="/login" replace />;
   }
 
+  // Check admin access if required
   if (adminOnly && user.role !== 'admin') {
     return <Navigate to="/" replace />;
   }
@@ -51,8 +53,6 @@ function App() {
                     } />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-
-                    {/* Protected Routes */}
                     <Route path="/admin" element={
                       <ProtectedRoute adminOnly>
                         <Admin />

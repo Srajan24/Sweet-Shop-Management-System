@@ -1,8 +1,6 @@
 const Sweet = require('../models/Sweet');
 
-// @desc    Get all sweets
-// @route   GET /api/sweets
-// @access  Public
+// Get all sweets
 exports.getSweets = async (req, res, next) => {
     try {
         const sweets = await Sweet.find();
@@ -12,9 +10,7 @@ exports.getSweets = async (req, res, next) => {
     }
 };
 
-// @desc    Search sweets
-// @route   GET /api/sweets/search
-// @access  Public
+// Search sweets by name, category, or price range
 exports.searchSweets = async (req, res, next) => {
     try {
         const { name, category, minPrice, maxPrice } = req.query;
@@ -42,9 +38,7 @@ exports.searchSweets = async (req, res, next) => {
     }
 };
 
-// @desc    Get single sweet
-// @route   GET /api/sweets/:id
-// @access  Public
+// Get single sweet by ID
 exports.getSweet = async (req, res, next) => {
     try {
         const sweet = await Sweet.findById(req.params.id);

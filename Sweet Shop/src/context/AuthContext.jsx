@@ -7,9 +7,8 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); // Default to true to check for token on mount
+    const [loading, setLoading] = useState(true);
 
-    // Login function
     const login = async (email, password) => {
         setLoading(true);
         try {
@@ -24,7 +23,6 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    // Register function
     const register = async (name, email, password) => {
         setLoading(true);
         try {
@@ -39,22 +37,19 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    // Logout function
     const logout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         setUser(null);
     };
 
-    // Check for persisted user/token on mount
+    // Check if user is already logged in on page load
     useEffect(() => {
         const checkAuth = async () => {
             const token = localStorage.getItem('token');
             const storedUser = localStorage.getItem('user');
 
             if (token && storedUser) {
-                // In a production app, you might want to verify the token with an API call here
-                // e.g., await api.get('/auth/me');
                 setUser(JSON.parse(storedUser));
             }
             setLoading(false);
@@ -63,20 +58,12 @@ export const AuthProvider = ({ children }) => {
         checkAuth();
     }, []);
 
-    // Update localStorage when user changes (to keep user data in sync if updated)
+    // Sync user data to localStorage
     useEffect(() => {
         if (user) {
             localStorage.setItem('user', JSON.stringify(user));
-        } else {
-            // Only remove if we explicitly logged out or user is null, 
-            // but be careful not to wipe it on initial load before checkAuth.
-            // handled by checkAuth logic mostly, but good to keep clear.
-            if (!loading) {
-                // If not loading, and user is null, ensure storage is clear
-                // (This is redundant with logout() but safe)
-            }
         }
-    }, [user, loading]);
+    }, [user]);
 
     const value = {
         user,

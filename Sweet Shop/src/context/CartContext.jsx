@@ -10,7 +10,7 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [initializedUser, setInitializedUser] = useState(null);
 
-    // Load cart from local storage when user changes
+    // Load user's cart from localStorage
     useEffect(() => {
         if (user) {
             const storedCart = localStorage.getItem(`cart_${user.id}`);
@@ -21,12 +21,12 @@ export const CartProvider = ({ children }) => {
             }
             setInitializedUser(user.id);
         } else {
-            setCart([]); // Clear cart if no user
+            setCart([]);
             setInitializedUser(null);
         }
     }, [user]);
 
-    // Save cart to local storage whenever it changes (only if user exists and cart is initialized for them)
+    // Persist cart to localStorage
     useEffect(() => {
         if (user && initializedUser === user.id) {
             localStorage.setItem(`cart_${user.id}`, JSON.stringify(cart));
@@ -43,18 +43,20 @@ export const CartProvider = ({ children }) => {
         setCart(prevCart => {
             const existingItem = prevCart.find(item => item.cartItemId === cartItemId);
             if (existingItem) {
+                // Update quantity if item already in cart
                 return prevCart.map(item =>
                     item.cartItemId === cartItemId
                         ? { ...item, quantity: item.quantity + quantity }
                         : item
                 );
             }
+            // Add new item to cart
             return [...prevCart, {
                 ...product,
                 quantity,
                 weight,
                 price: adjustedPrice,
-                originalPrice: product.price, // Keep track of base price
+                originalPrice: product.price,
                 cartItemId
             }];
         });

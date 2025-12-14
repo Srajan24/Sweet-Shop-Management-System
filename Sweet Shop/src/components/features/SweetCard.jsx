@@ -7,6 +7,7 @@ const SweetCard = ({ sweet, onPurchase }) => {
     const [purchaseQty, setPurchaseQty] = useState(1);
     const [selectedWeight, setSelectedWeight] = useState('1kg');
 
+    // Calculate price based on selected weight
     const priceMultiplier = selectedWeight === '250g' ? 0.25 : selectedWeight === '500g' ? 0.5 : 1;
     const displayPrice = sweet.price * priceMultiplier;
 
