@@ -44,7 +44,7 @@ A modern, full-stack e-commerce application for managing a sweet shop with a bea
 
 1. Clone the repository
 ```bash
-git clone https://github.com/ritikkumar50/Sweet-Shop-Management-System.git
+git clone https://github.com/Srajan24/Sweet-Shop-Management-System.git
 cd Sweet-Shop-Management-System
 ```
 
