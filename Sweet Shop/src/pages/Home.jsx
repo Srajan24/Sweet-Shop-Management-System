@@ -12,11 +12,10 @@ const Home = () => {
                         <span className="text-base font-semibold text-accent tracking-wide uppercase font-serif">Artisan sweets, made with love</span>
                     </div>
                     <h1 className="text-6xl md:text-8xl font-serif text-accent dark:text-accent mb-8 leading-tight">
-                        Indulge in <span className="text-primary italic">Sweet</span> Perfection
+                        Parampara Ki  <span className="text-primary italic">Mithai</span> , Aaj Ke Andaaz Mei
                     </h1>
                     <p className="text-xl md:text-2xl text-[#5A4A3A] dark:text-[#5A4A3A] mb-12 max-w-3xl mx-auto leading-relaxed">
-                        Discover our handcrafted collection of cakes, chocolates, pastries, and more.
-                        Every bite is a moment of pure bliss.
+                       Pure Desi Ghee Mithai for Every Festival & Celebration
                     </p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link
@@ -44,7 +43,7 @@ const Home = () => {
             {/* Features Section */}
             <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-serif text-accent dark:text-accent mb-4">Why Choose Sweet Delights?</h2>
+                    <h2 className="text-4xl font-serif text-accent dark:text-accent mb-4">Why Choose Parampara Sweets</h2>
                     <p className="text-[#5A4A3A] dark:text-[#5A4A3A] max-w-2xl mx-auto">We're not just a sweet shop - we're artisans dedicated to creating unforgettable taste experiences.</p>
                 </div>
 
@@ -121,10 +120,10 @@ const Home = () => {
             </div>
 
             {/* CTA Footer */}
-            <div className="bg-gradient-to-b from-[#1E1E2E] to-[#0D0D1A] dark:from-[#1E1E2E] dark:to-[#0A0A15] py-32 text-center relative overflow-hidden">
+            <div className="bg-gradient-to-b from-[#FFF9F0] to-[#FAF8F5] dark:from-[#FFF9F0] dark:to-[#F5F1EB] py-32 text-center relative overflow-hidden">
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
-                    <h2 className="text-5xl md:text-6xl font-serif text-accent dark:text-white mb-8">Ready to Satisfy Your Sweet Tooth?</h2>
-                    <p className="text-xl text-gray-400 dark:text-gray-300 mb-10">Browse our collection of artisan sweets and find your new favorite treat.</p>
+                    <h2 className="text-5xl md:text-6xl font-serif text-accent dark:text-accent mb-8">Ready to Satisfy Your Sweet Tooth?</h2>
+                    <p className="text-xl text-[#5A4A3A] dark:text-[#5A4A3A] mb-10">Browse our collection of artisan sweets and find your new favorite treat.</p>
                     <Link
                         to="/shop"
                         className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#E8A87C] to-[#D99A6A] text-white px-12 py-5 rounded-full font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all text-xl tracking-wide"
@@ -135,13 +134,13 @@ const Home = () => {
             </div>
 
 
-            <footer className="bg-[#0D0D1A] dark:bg-[#0A0A15] py-8 border-t border-[#2D2D3E] dark:border-[#2D2D3E]">
-                <div className="max-w-7xl mx-auto px-4 text-center sm:flex justify-between items-center text-gray-500 dark:text-gray-500 text-sm">
+            <footer className="bg-white dark:bg-white py-8 border-t border-[#E8DCC6] dark:border-[#E8DCC6]">
+                <div className="max-w-7xl mx-auto px-4 text-center sm:flex justify-between items-center text-[#5A4A3A] dark:text-[#5A4A3A] text-sm">
                     <div className="flex items-center justify-center gap-2 mb-4 sm:mb-0">
                         <Cake className="w-5 h-5 text-primary" />
-                        <span className="font-serif font-bold text-accent dark:text-gray-300 text-lg">Sweet Delights</span>
+                        <span className="font-serif font-bold text-accent dark:text-accent text-lg">Parampara Sweets</span>
                     </div>
-                    <p>© 2024 Sweet Delights. All rights reserved.</p>
+                    <p>© 2024 Parampara Sweets. All rights reserved.</p>
                 </div>
             </footer>
         </div>

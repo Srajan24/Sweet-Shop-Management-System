@@ -1,4 +1,6 @@
-# Sweet Shop Management System
+# Parampara Sweets - Sweet Shop Management System
+
+**Live Demo:** [https://sweet-shop-management-system-ten.vercel.app/](https://sweet-shop-management-system-ten.vercel.app/)
 
 A modern, full-stack e-commerce application for managing a sweet shop with a beautiful user interface and comprehensive admin functionality.
 
