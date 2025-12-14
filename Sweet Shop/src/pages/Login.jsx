@@ -25,12 +25,12 @@ const Login = () => {
             await login(formData.email, formData.password);
             navigate('/');
         } catch (err) {
-            setError('Invalid email or password');
+            setError(err.response?.data?.message || err.message || 'Invalid email or password');
         }
     };
 
     return (
-        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-[#FFFBF9] dark:bg-slate-900 transition-colors duration-300">
+        <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8 bg-[#FAF8F5] dark:bg-[#F5F1EB] transition-colors duration-300">
             <div className="w-full max-w-lg">
                 {/* Header Section */}
                 <div className="text-center mb-10">
@@ -47,7 +47,7 @@ const Login = () => {
                 </div>
 
                 {/* Form Card */}
-                <div className="bg-white dark:bg-slate-800 p-8 sm:p-10 rounded-3xl shadow-xl shadow-orange-100/50 dark:shadow-none border border-white dark:border-slate-700">
+                <div className="bg-white dark:bg-white p-8 sm:p-10 rounded-3xl shadow-xl shadow-[#E8DCC6]/30 dark:shadow-none border border-[#E8DCC6] dark:border-[#E8DCC6]">
                     <form className="space-y-6" onSubmit={handleSubmit}>
                         {error && (
                             <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-xl text-sm flex items-center">
@@ -67,7 +67,7 @@ const Login = () => {
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 disabled={loading}
                                 required
-                                className="bg-[#FFFBF9] dark:bg-slate-700 border-transparent focus:bg-white transition-all"
+                                className="bg-[#FAF8F5] dark:bg-[#F5F1EB] border-transparent focus:bg-white transition-all"
                             />
 
                             <div className="relative">
@@ -81,7 +81,7 @@ const Login = () => {
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                     disabled={loading}
                                     required
-                                    className="bg-[#FFFBF9] dark:bg-slate-700 border-transparent focus:bg-white transition-all pr-10"
+                                    className="bg-[#FAF8F5] dark:bg-[#F5F1EB] border-transparent focus:bg-white transition-all pr-10"
                                 />
                                 <button
                                     type="button"
@@ -95,7 +95,7 @@ const Login = () => {
 
                         <div className="flex items-center justify-between">
                             <div className="text-sm">
-                                <a href="#" className="font-medium text-primary hover:text-[#E5633A]">
+                                <a href="#" className="font-medium text-primary hover:text-[#D99A6A]">
                                     Forgot password?
                                 </a>
                             </div>
@@ -112,7 +112,7 @@ const Login = () => {
                         <div className="text-center text-sm">
                             <p className="text-gray-600 dark:text-gray-400">
                                 Don't have an account?{' '}
-                                <Link to="/register" className="font-medium text-primary hover:text-[#E5633A]">
+                                <Link to="/register" className="font-medium text-primary hover:text-[#D99A6A]">
                                     Sign up here
                                 </Link>
                             </p>

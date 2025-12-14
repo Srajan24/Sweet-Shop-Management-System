@@ -33,7 +33,7 @@ function App() {
         <AuthProvider>
           <ToastProvider>
             <CartProvider>
-              <div className="min-h-screen bg-[#FFFBF9] dark:bg-slate-900 text-[#4A3B32] dark:text-slate-100 font-sans transition-colors duration-300">
+              <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#F5F1EB] text-accent dark:text-accent font-sans transition-colors duration-300">
                 <Navbar />
                 <main>
                   <Routes>

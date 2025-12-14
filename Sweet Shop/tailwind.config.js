@@ -8,14 +8,14 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#F2744B', // Coral Orange
-                secondary: '#FFF5F2', // Soft Peach
-                accent: '#4A3B32', // Dark Artisan Brown
-                surface: '#FFFBF9', // Warm White
+                primary: '#E8A87C', // Warm Coral/Peach
+                secondary: '#F5F1EB', // Soft Cream
+                accent: '#3D2817', // Warm Brown for text
+                surface: '#FAF8F5', // Light Cream Background
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                serif: ['Playfair Display', 'serif'],
+                sans: ['Poppins', 'sans-serif'],
+                serif: ['Crimson Pro', 'serif'],
             }
         },
     },

@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-[#FFFBF9] text-[#4A3B32] font-sans antialiased dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300;
+    @apply bg-[#FAF8F5] text-[#3D2817] font-sans antialiased dark:bg-[#F5F1EB] dark:text-[#3D2817] transition-colors duration-300;
   }
 
   h1,

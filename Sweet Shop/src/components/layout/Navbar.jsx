@@ -35,21 +35,21 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="bg-white dark:bg-slate-900 border-b border-gray-100 dark:border-slate-800 sticky top-0 z-50 py-4 transition-colors duration-300">
+        <nav className="bg-white dark:bg-white border-b border-[#E8DCC6] dark:border-[#E8DCC6] sticky top-0 z-50 py-4 transition-colors duration-300 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 group">
                         <Cake className="w-6 h-6 text-primary" />
-                        <span className="font-serif font-bold text-xl text-[#4A3B32] dark:text-white">Parampara Sweets</span>
+                        <span className="font-serif font-bold text-xl text-accent dark:text-white">Parampara Sweets</span>
                     </Link>
 
                     {/* Center Links */}
                     <div className="hidden md:flex items-center gap-12">
-                        <Link to="/" className="text-[#4A3B32] dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors border-b-2 border-transparent hover:border-primary">
+                        <Link to="/" className="text-accent dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors border-b-2 border-transparent hover:border-primary">
                             Home
                         </Link>
-                        <Link to="/shop" className="text-[#4A3B32] dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors border-b-2 border-transparent hover:border-primary">
+                        <Link to="/shop" className="text-accent dark:text-gray-300 hover:text-primary dark:hover:text-primary font-medium transition-colors border-b-2 border-transparent hover:border-primary">
                             Shop
                         </Link>
                     </div>
@@ -71,11 +71,11 @@ const Navbar = () => {
                             {user ? (
                                 <div className="flex items-center gap-4">
                                     {user.role === 'admin' && (
-                                        <Link to="/admin" className="text-sm font-medium text-[#4A3B32] dark:text-gray-300 hover:text-primary">
+                                        <Link to="/admin" className="text-sm font-medium text-accent dark:text-gray-300 hover:text-primary">
                                             Admin
                                         </Link>
                                     )}
-                                    <span className="text-sm text-gray-500 hidden sm:inline">{user.name}</span>
+                                    <span className="text-sm text-gray-400 hidden sm:inline">{user.name}</span>
                                     <button onClick={handleLogout} className="text-gray-400 hover:text-primary transition-colors">
                                         <LogOut className="w-5 h-5" />
                                     </button>
@@ -87,7 +87,7 @@ const Navbar = () => {
                                     </Link>
                                     <Link
                                         to="/register"
-                                        className="bg-primary text-white px-6 py-2.5 rounded-full font-medium shadow-lg hover:shadow-xl hover:bg-[#E5633A] transition-all transform hover:-translate-y-0.5"
+                                        className="bg-primary text-white px-6 py-2.5 rounded-full font-medium shadow-lg hover:shadow-xl hover:bg-[#D99A6A] transition-all transform hover:-translate-y-0.5"
                                     >
                                         Get Started
                                     </Link>
@@ -105,30 +105,30 @@ const Navbar = () => {
                             </button>
 
                             {showMobileMenu && (
-                                <div className="absolute right-0 top-12 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-gray-100 dark:border-slate-700 p-4 flex flex-col gap-4 animate-in fade-in zoom-in duration-200">
+                                <div className="absolute right-0 top-12 w-56 bg-white dark:bg-white rounded-xl shadow-xl border border-[#E8DCC6] dark:border-[#E8DCC6] p-4 flex flex-col gap-4 animate-in fade-in zoom-in duration-200">
                                     {user ? (
                                         <>
-                                            <div className="pb-3 border-b border-gray-100 dark:border-slate-700">
-                                                <p className="font-bold text-[#4A3B32] dark:text-white">{user.name}</p>
-                                                <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
+                                            <div className="pb-3 border-b border-[#E8DCC6] dark:border-[#E8DCC6]">
+                                                <p className="font-bold text-accent dark:text-accent">{user.name}</p>
+                                                <p className="text-xs text-[#5A4A3A] dark:text-[#5A4A3A]">{user.email}</p>
                                             </div>
                                             {user.role === 'admin' && (
                                                 <Link
                                                     to="/admin"
                                                     onClick={() => setShowMobileMenu(false)}
-                                                    className="w-full text-left text-sm font-medium text-[#4A3B32] dark:text-gray-300 hover:text-primary"
+                                                    className="w-full text-left text-sm font-medium text-accent dark:text-accent hover:text-primary"
                                                 >
                                                     Admin Dashboard
                                                 </Link>
                                             )}
                                             <div
-                                                className="flex items-center justify-between py-2 px-1 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg cursor-pointer transition-colors"
+                                                className="flex items-center justify-between py-2 px-1 hover:bg-[#F5F1EB] dark:hover:bg-[#F5F1EB] rounded-lg cursor-pointer transition-colors"
                                                 onClick={() => {
                                                     toggleTheme();
                                                     setShowMobileMenu(false);
                                                 }}
                                             >
-                                                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Theme</span>
+                                                <span className="text-sm text-[#5A4A3A] dark:text-[#5A4A3A] font-medium">Theme</span>
                                                 <div onClick={(e) => e.stopPropagation()}>
                                                     <ThemeToggle onClick={() => setShowMobileMenu(false)} />
                                                 </div>
@@ -143,13 +143,13 @@ const Navbar = () => {
                                     ) : (
                                         <>
                                             <div
-                                                className="flex items-center justify-between py-2 px-1 hover:bg-gray-50 dark:hover:bg-slate-700 rounded-lg cursor-pointer transition-colors"
+                                                className="flex items-center justify-between py-2 px-1 hover:bg-[#F5F1EB] dark:hover:bg-[#F5F1EB] rounded-lg cursor-pointer transition-colors"
                                                 onClick={() => {
                                                     toggleTheme();
                                                     setShowMobileMenu(false);
                                                 }}
                                             >
-                                                <span className="text-sm text-gray-600 dark:text-gray-400 font-medium">Theme</span>
+                                                <span className="text-sm text-[#5A4A3A] dark:text-[#5A4A3A] font-medium">Theme</span>
                                                 <div onClick={(e) => e.stopPropagation()}>
                                                     <ThemeToggle onClick={() => setShowMobileMenu(false)} />
                                                 </div>
@@ -157,14 +157,14 @@ const Navbar = () => {
                                             <Link
                                                 to="/login"
                                                 onClick={() => setShowMobileMenu(false)}
-                                                className="w-full text-center text-sm font-medium text-[#4A3B32] dark:text-white hover:text-primary py-2 bg-gray-50 dark:bg-slate-700 rounded-lg"
+                                                className="w-full text-center text-sm font-medium text-accent dark:text-accent hover:text-primary py-2 bg-[#F5F1EB] dark:bg-[#F5F1EB] rounded-lg"
                                             >
                                                 Sign In
                                             </Link>
                                             <Link
                                                 to="/register"
                                                 onClick={() => setShowMobileMenu(false)}
-                                                className="w-full text-center text-sm font-medium bg-primary text-white py-2 rounded-lg hover:bg-[#E5633A]"
+                                                className="w-full text-center text-sm font-medium bg-primary text-white py-2 rounded-lg hover:bg-[#D99A6A]"
                                             >
                                                 Get Started
                                             </Link>
